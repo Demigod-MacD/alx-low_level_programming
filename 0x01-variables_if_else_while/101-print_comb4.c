@@ -20,15 +20,15 @@ int main(void)
 					putchar(n);
 					putchar(m);
 					putchar(l);
-					if (n != 55 || m != 56)
+					if (n != 55 || m != 56 || l != 57)
 					{
-						putchar(",");
-						putchar(" ");
+						putchar(44);
+						putchar(32);
 					}
 				}
 			}
 		}
 	}
-	putchar("\n");
+	putchar(10);
 	return (0);
 }
