@@ -16,6 +16,7 @@ int _sqrt_recursion(int n)
  * _sqrt - recursive square root function
  * @n: number
  * @i: iterator
+ * Return: square root of n
  */
 int _sqrt(int n, int i)
 {
