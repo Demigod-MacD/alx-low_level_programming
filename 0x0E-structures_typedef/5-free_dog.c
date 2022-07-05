@@ -1,4 +1,4 @@
-#inxlude "dog.h"
+#include "dog.h"
 #include <stdlib>
 
 /**
