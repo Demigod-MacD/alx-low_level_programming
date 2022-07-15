@@ -8,34 +8,42 @@
  */
 int main(void)
 {
-	int a, b, c, d;
+	int i, j, k, m;
 
-	for (a = 48; a <= 57; a++)
+	i = 48;
+
+	while (i < 58)
 	{
-		for (b = 48; b <= 57; b++)
-		{
-			for (c = 48; c <= 57; c++)
-			{
-				for (d = 48; d <= 57; d++)
-				{
-					putchar(a);
-					putchar(b);
-					putchar(32);
-					putchar(c);
-					putchar(d);
+		j = 48;
 
-					if (a == 56 && a + b + c + d == 227)
-					{
-						break;
-					}
-					else
+		while (j < 58)
+		{
+			m = j + 1;
+			k = i;
+
+			while (k < 58)
+			{
+				while (m < 58)
+				{
+					putchar(i);
+					putchar(j);
+					putchar(32);
+					putchar(k);
+					putchar(m);
+
+					if (i < 57 || j < 56 || k < 57 || m < 57)
 					{
 						putchar(44);
 						putchar(32);
 					}
+					m++;
 				}
+				m = 48;
+				k++;
 			}
+			j++;
 		}
+		i++;
 	}
 
 	putchar(10);
