@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * main - prints all possible combinations of two digit numbers
@@ -7,28 +8,36 @@
  */
 int main(void)
 {
-	int i, j;
+	int a, b, c, d;
 
-	for (i = 0; i < 100; i++)
+	for (a = 48; a <= 57; a++)
 	{
-		for (j = 0; j < 100; j++)
+		for (b = 48; b <= 57; b++)
 		{
-			if (i < j)
+			for (c = 48; c <= 57; c++)
 			{
-				putchar((i / 10) + 48);
-				putchar((i % 10) + 48);
-				putchar(32);
-				putchar((j / 10) + 48);
-				putchar((j / 10) + 48);
-
-				if (i != 98 || j != 99)
+				for (d = 48; d <= 57; d++)
 				{
-				putchar(44);
-				putchar(32);
+					putchar(a);
+					putchar(b);
+					putchar(32);
+					putchar(c);
+					putchar(d);
+
+					if (a == 57 && a + b + c + d == 227)
+					{
+						break;
+					}
+					else
+					{
+						putchar(44);
+						putchar(32);
+					}
 				}
 			}
 		}
 	}
+
 	putchar(10);
 	return (0);
 }
