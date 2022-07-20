@@ -3,31 +3,27 @@
 #include <stdio.h>
 
 /**
- * _ra - reallocates memory for array of pointers to node in linked list
- * @list: the old list to append
- * @size: size of the new list (always one more than the old list)
- * @new: new node to add to the list
+ * free_listp2 - frees a linked list
+ * @head: head of a list
  *
- * Return: pointer to the new list
+ * Return : no return
  */
-listint_t **_ra(listint_t **list, size_t size, listint_t *new)
+void free_listp2(listp_t **head)
 {
-	listint_t **newlist;
-	size_t i;
+	listp_t *temp;
+	listp_t *curr;
 
-	newlist = malloc(size * sizeof(listint_t *));
-
-	if (newlist == NULL)
+	if (head != NULL)
 	{
-		free(list);
-		exit(98);
-	}
-	for (i = 0; i < size - 1; i++)
-		newlist[i] = list[i];
-	newlist[i] = new;
-	free(list);
+		curr = *head;
 
-	return (newlist);
+		while ((temp = curr) != NULL)
+		{
+			curr = curr->next;
+			free(temp);
+		}
+		*head = NULL;
+	}
 }
 
 /**
@@ -38,31 +34,41 @@ listint_t **_ra(listint_t **list, size_t size, listint_t *new)
  */
 size_t free_listint_safe(listint_t **head)
 {
-	size_t i, num = 0;
-	listint_t **list = NULL;
-	listint_t *next;
+	size_t nnodes = 0;
+	listint_t *hptr, *new, *add;
+	listint_t *curr;
 
-	if (head == NULL || *head == NULL)
-		return (num);
-
-	while (*head != NULL)
+	hptr = NULL;
+	while (*h != NULL)
 	{
-		for (i = 0; i < num; i++)
+		new = malloc(sizeof(listp_t));
+
+		if (new == NULL)
+			exit(98);
+
+		new->p = (void *)*h;
+		new->next = hptr;
+		hptr = new;
+
+		add = hptr;
+
+		while (add->next != NULL)
 		{
-			if (*head == list[i])
+			add = add->next;
+			if (*h == add->p)
 			{
-				*head = NULL;
-				free(list);
-				return (num);
+				*h = NULL;
+				free_listp2(&hptr);
+				return (nnodes);
 			}
 		}
-		num++;
-		list = _ra(list, num, *head);
-		next = (*head)->next;
-		free(*head);
-		*head = next;
+		curr = *h;
+		*h = (*h)->next;
+		free(curr);
+		nnodes++;
 	}
-	free(list);
+	*h = NULL;
+	free_listp2(&hptr);
 
-	return (num);
+	return (nnodes);
 }
