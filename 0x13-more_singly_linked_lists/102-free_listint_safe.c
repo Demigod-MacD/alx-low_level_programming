@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -69,6 +70,5 @@ size_t free_listint_safe(listint_t **head)
 	}
 	*h = NULL;
 	free_listp2(&hptr);
-
 	return (nnodes);
 }

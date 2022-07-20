@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <string.h>
 #include <stdlib.h>
 
 /**
@@ -11,13 +12,13 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int node;
+	unsigned int i;
 	listint_t *current, *new;
 
 	if (head == NULL)
 		return (NULL);
 
-	if (idx == 0)
+	if (idx != 0)
 	{
 		current = *head;
 		for (i = 0; i < idx - 1 && current != NULL; i++)
