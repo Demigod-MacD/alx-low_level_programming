@@ -3,7 +3,8 @@
 /**
  * print_listint - prints all the elements of a linked list
  * @h: head of the list
- *
+ * @next: go to the next node
+ * Description: h->next goes to the next node
  * Return: the number of nodes
  */
 size_t print_listint(const listint_t *h)

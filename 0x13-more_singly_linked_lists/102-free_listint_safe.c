@@ -36,7 +36,7 @@ void free_listp2(listp_t **head)
 size_t free_listint_safe(listint_t **head)
 {
 	size_t nnodes = 0;
-	listint_t *hptr, *new, *add;
+	listp_t *hptr, *new, *add;
 	listint_t *curr;
 
 	hptr = NULL;
